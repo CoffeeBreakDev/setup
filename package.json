@@ -4,11 +4,11 @@
   "description": "A boilerplate for React, Vite, TypeScript, and TailwindCSS.",
   "main": "index.js",
   "bin": {
-    "coffeebreakdev": "./scripts/scripts.js"
+    "coffeebreakdev": "./bin/scripts.mjs"
   },
   "files": [
     "public/",
-    "scripts/",
+    "bin/",
     "src/",
     "index.html",
     "eslint.config.js",

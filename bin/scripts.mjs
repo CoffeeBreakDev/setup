@@ -46,7 +46,7 @@ async function main() {
 
     console.log('Removing unnecessary files...');
     await rm(join(projectPath, '.git'), { recursive: true, force: true });
-    await rm(join(projectPath, 'scripts'), { recursive: true, force: true });
+    await rm(join(projectPath, 'bin'), { recursive: true, force: true });
 
     console.log('The installation is complete. Your project is ready to use!');
   } catch (error) {
