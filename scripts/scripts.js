@@ -33,16 +33,16 @@ async function main() {
 
   try {
     console.log('Downloading files...');
-    await exec(`git clone --depth 1 ${git_repo} ${projectPath}`);
+      exec(`git clone --depth 1 ${git_repo} ${projectPath}`);
 
     process.chdir(projectPath);
 
     console.log('Installing dependencies...');
-    await exec('npm install');
+     exec('npm install');
 
     console.log('Removing useless files');
     fs.rmSync('./.git', { recursive: true, force: true });
-    fs.rmdirSync(path.join(projectPath, 'bin'), { recursive: true });
+    fs.rmdirSync(path.join(projectPath, 'scripts'), { recursive: true });
 
     console.log('The installation is done, this is ready to use!');
   } catch (error) {
