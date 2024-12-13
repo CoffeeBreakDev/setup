@@ -4,7 +4,7 @@ const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-const git_repo = process.env.GIT_REPO; // Hämta från miljövariabel
+const git_repo = 'https://github.com/CoffeeBreakDev/setup.git'
 
 if (process.argv.length < 3) {
   console.log('You have to provide a name to your app.');
