@@ -1,0 +1,33 @@
+{
+  "name": "coffeebreakdev",
+  "version": "1.1.0",
+  "description": "A boilerplate for React, Vite, TypeScript, and TailwindCSS.",
+  "main": "index.js",
+  "bin": {
+    "coffeebreakdev": "scripts/setup.js"
+  },
+  "files": [
+    "public/",
+    "scripts/",
+    "src/",
+    "index.html",
+    "eslint.config.js",
+    "postcss.config.js",
+    "README.md",
+    "tailwind.config.js",
+    "tsconfig*.json",
+    "vite.config.ts"
+  ],
+  "keywords": [
+    "boilerplate",
+    "vite",
+    "react",
+    "typescript",
+    "tailwind"
+  ],
+  "author": "CoffeeBreakDev",
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "^6.0.1"
+  }
+}

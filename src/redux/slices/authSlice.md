@@ -1,0 +1,2 @@
+# autSlice.ts
+# Redux slices
