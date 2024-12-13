@@ -42,7 +42,7 @@ async function main() {
 
     console.log('Removing useless files');
     fs.rmSync('./.git', { recursive: true, force: true });
-    fs.rmdirSync(path.join(projectPath, 'scripts'), { recursive: true });
+    fs.rmSync(path.join(projectPath, 'scripts'), { recursive: true });
 
     console.log('The installation is done, this is ready to use!');
   } catch (error) {
