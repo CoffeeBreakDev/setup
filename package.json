@@ -1,6 +1,6 @@
 {
   "name": "coffeebreakdev",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "A boilerplate for React, Vite, TypeScript, and TailwindCSS.",
   "main": "index.js",
   "bin": {
