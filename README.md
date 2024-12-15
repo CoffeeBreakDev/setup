@@ -31,14 +31,14 @@ src/
 This command will copy the template into your current directory. Ensure the directory is empty before running it:
 
 ```bash
-npx coffeebreakdev
+npx coffeebreakdev _your_project_name_here_
 ```
 
 # Available npm scripts:
 Once installed, you can use the following scripts:
 
 ```bash
-npm install
+cd _your_project_name_here_
 ```
 
 ```bash
