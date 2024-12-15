@@ -69,7 +69,7 @@ async function main() {
     process.stdout.write(`\rInstalling... [${'='.repeat(installProgress / 2)}${' '.repeat(50 - installProgress / 2)}] ${installProgress}%`);
     if (installProgress >= 100) {
       clearInterval(interval);
-      console.log('\n✔️ Dependencies installed successfully!');
+      console.log(`\n✔️ Dependencies installed successfully!`);
 
       // Add additional information and steps after installation
       console.log('\nWe will now do some clean-up to make your project neat and tidy...');
@@ -90,7 +90,7 @@ async function main() {
     await rm(join(projectPath, '.git'), { recursive: true, force: true });
     await rm(join(projectPath, 'bin'), { recursive: true, force: true });
     stopSpinnerCleanup();
-    console.log('\n✔️ Unnecessary files removed successfully!');
+    console.log(`\n✔️ Unnecessary files removed successfully!`);
   } catch (err) {
     stopSpinnerCleanup();
     console.error('Error cleaning up files:', err);
@@ -98,12 +98,13 @@ async function main() {
   }
 
   // Final message with project summary
-  console.log('\n✔️ Done! Your project is ready to roll! ☕');
-  console.log(`🎉 Your awesome app, "${projectName}", is set up. Now you can start building! 🚀`);
-  console.log('If you need help, just ask CoffeeBreakDev. We’ve got your back! ☕');
-  console.log('To start your app, navigate to the project folder and run:');
-  console.log(`\ncd ${projectName}`);
-  console.log('\nnpm run dev');
+  console.log(`\n🎉 Congratulations! Your project is all set up and ready to roll! ☕🚀`);
+  console.log(`🎨 Your amazing app, "${projectName}", is now live! Time to start creating some magic. ✨`);
+  console.log('Need help along the way? Don’t worry! CoffeeBreakDev is here for you. Let’s code, let’s conquer! ☕💻');
+  console.log('To get started, simply navigate to your project folder and run the command below:\n');
+  console.log(`cd ${projectName}`);
+  console.log(`Then, fire up your app by running:\n`);
+  console.log('npm run dev\n');  
 }
 
 main();
