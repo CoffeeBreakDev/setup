@@ -20,7 +20,7 @@ function spinner(text) {
 const gitRepo = 'https://github.com/CoffeeBreakDev/setup.git';
 
 if (process.argv.length < 3) {
-  console.log('Oops! You forgot to provide a project name.');
+  console.log('😬  Oops! You forgot to provide a project name.');
   console.log('Try something like:');
   console.log('\nnpx coffeebreakdev my-awesome-app');
   process.exit(1);
@@ -36,13 +36,13 @@ async function main() {
   try {
     await mkdir(projectPath, { recursive: false });
     stopSpinner();
-    console.log(`\nProject folder "${projectName}" created successfully!`);
+    console.log(`\n✔️  Project folder "${projectName}" created successfully!`);
   } catch (err) {
     stopSpinner();
     if (err.code === 'EEXIST') {
-      console.log(`Uh-oh! A folder named "${projectName}" already exists.`);
+      console.log(`😬  Uh-oh! A folder named "${projectName}" already exists.`);
     } else {
-      console.error('Something went wrong:', err);
+      console.error('❌  Something went wrong:', err);
     }
     process.exit(1);
   }
@@ -52,10 +52,10 @@ async function main() {
   try {
     await execa('git', ['clone', '--depth', '1', gitRepo, projectPath]);
     stopSpinnerClone();
-    console.log(`\nRepository cloned successfully!`);
+    console.log(`\n✔️  Repository cloned successfully!`);
   } catch (err) {
     stopSpinnerClone();
-    console.error('Failed to clone the repo!');
+    console.error('❌  Failed to clone the repo!');
     console.error(err);
     process.exit(1);
   }
@@ -69,10 +69,10 @@ async function main() {
     process.stdout.write(`\rInstalling... [${'='.repeat(installProgress / 2)}${' '.repeat(50 - installProgress / 2)}] ${installProgress}%`);
     if (installProgress >= 100) {
       clearInterval(interval);
-      console.log(`\n✔️ Dependencies installed successfully!`);
+      console.log(`\n✔️  Dependencies installed successfully!`);
 
       // Add additional information and steps after installation
-      console.log('\nWe will now do some clean-up to make your project neat and tidy...');
+      console.log('\n☕  We will now do some clean-up to make your project neat and tidy...');
     }
   }, 100);
 
@@ -80,7 +80,7 @@ async function main() {
     await execa('npm', ['install']);
   } catch (err) {
     clearInterval(interval);
-    console.error('Error installing dependencies!');
+    console.error('❌  Error installing dependencies!');
     process.exit(1);
   }
 
@@ -90,10 +90,10 @@ async function main() {
     await rm(join(projectPath, '.git'), { recursive: true, force: true });
     await rm(join(projectPath, 'bin'), { recursive: true, force: true });
     stopSpinnerCleanup();
-    console.log(`\n✔️ Unnecessary files removed successfully!`);
+    console.log(`\n✔️  Unnecessary files removed successfully!`);
   } catch (err) {
     stopSpinnerCleanup();
-    console.error('Error cleaning up files:', err);
+    console.error('❌  Error cleaning up files:', err);
     process.exit(1);
   }
 
@@ -104,7 +104,7 @@ async function main() {
   console.log('To get started, simply navigate to your project folder and run the command below:\n');
   console.log(`cd ${projectName}`);
   console.log(`Then, fire up your app by running:\n`);
-  console.log('npm run dev\n');  
+  console.log('npm run dev\n');
 }
 
 main();
