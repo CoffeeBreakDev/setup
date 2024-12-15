@@ -32,9 +32,14 @@ function App() {
           />
         </a>
       </div>
-      <div className="group">
-        <h1 className="font-bold cursor-pointer hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in">CoffeeBreakDev</h1>
-        <h2 className="text-sm font-semibold text-gray-900 bg-gray-200 group-hover:bg-gray-900 group-hover:text-gray-200 cursor-pointer transition-all duration-1000 ease-out">
+      <div className="flex flex-col group">
+      <div className="flex items-center justify-center w-full">
+          <a href="https://coffeebreak.dev">
+          <img className="w-48 h-48 p-4 m-4 border-4 border-gray-800 rounded-full shadow-md margin-auto ring-4 shadow-gray-800" src="https://gravatar.com/avatar/9a7aa4dfa7f4105eef405edefa26bf2b?size=256" alt="CoffeeBreakDev" />
+          </a>
+        </div>
+        <h1 className="font-bold transition-all duration-300 ease-in cursor-pointer hover:bg-gray-200 hover:text-gray-900">CoffeeBreakDev</h1>
+        <h2 className="text-sm font-semibold text-gray-900 transition-all duration-1000 ease-out bg-gray-200 cursor-pointer group-hover:bg-gray-900 group-hover:text-gray-200">
           React + Vite + Typescript + Tailwind
         </h2>
       </div>
