@@ -60,7 +60,7 @@ async function main() {
     process.exit(1);
   }
 
-  // Install dependencies with a loading bar
+  // Install dependencies with progress
   chdir(projectPath);
   console.log('Installing dependencies...');
   let installProgress = 0;
@@ -77,7 +77,9 @@ async function main() {
   }, 100);
 
   try {
+    // Ensure npm install is completed before continuing with cleanup and other steps
     await execa('npm', ['install']);
+    clearInterval(interval); // Stop progress bar when install is finished
   } catch (err) {
     clearInterval(interval);
     console.error('❌  Error installing dependencies!');
@@ -102,7 +104,7 @@ async function main() {
   console.log(`🎨 Your amazing app, "${projectName}", is now live! Time to start creating some magic. ✨`);
   console.log('Need help along the way? Don’t worry! CoffeeBreakDev is here for you. Let’s code, let’s conquer! ☕💻');
   console.log('To get started, simply navigate to your project folder and run the command below:\n');
-  console.log(`cd ${projectName}`);
+  console.log(`cd ${projectName}\n`);
   console.log(`Then, fire up your app by running:\n`);
   console.log('npm run dev\n');
 }
