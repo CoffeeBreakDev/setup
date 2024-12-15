@@ -22,7 +22,7 @@ const gitRepo = 'https://github.com/CoffeeBreakDev/setup.git';
 if (process.argv.length < 3) {
   console.log('Oops! You forgot to provide a project name.');
   console.log('Try something like:');
-  console.log('    npx coffeebreakdev my-awesome-app');
+  console.log('\nnpx coffeebreakdev my-awesome-app');
   process.exit(1);
 }
 
@@ -69,7 +69,10 @@ async function main() {
     process.stdout.write(`\rInstalling... [${'='.repeat(installProgress / 2)}${' '.repeat(50 - installProgress / 2)}] ${installProgress}%`);
     if (installProgress >= 100) {
       clearInterval(interval);
-      console.log('\nDependencies installed successfully!');
+      console.log('\n✔️ Dependencies installed successfully!');
+
+      // Add additional information and steps after installation
+      console.log('\nWe will now do some clean-up to make your project neat and tidy...');
     }
   }, 100);
 
@@ -81,16 +84,13 @@ async function main() {
     process.exit(1);
   }
 
-  // Add additional information and steps after installation
-  console.log('\nNext, we will clean up unnecessary files to make your project neat and tidy.');
-
   // Remove unnecessary files with spinner
   const stopSpinnerCleanup = spinner('Cleaning up unnecessary files...');
   try {
     await rm(join(projectPath, '.git'), { recursive: true, force: true });
     await rm(join(projectPath, 'bin'), { recursive: true, force: true });
     stopSpinnerCleanup();
-    console.log('\nUnnecessary files removed successfully!');
+    console.log('\n✔️ Unnecessary files removed successfully!');
   } catch (err) {
     stopSpinnerCleanup();
     console.error('Error cleaning up files:', err);
@@ -98,12 +98,12 @@ async function main() {
   }
 
   // Final message with project summary
-  console.log('\nDone! Your project is ready to roll! ☕');
+  console.log('\n✔️ Done! Your project is ready to roll! ☕');
   console.log(`🎉 Your awesome app, "${projectName}", is set up. Now you can start building! 🚀`);
   console.log('If you need help, just ask CoffeeBreakDev. We’ve got your back! ☕');
   console.log('To start your app, navigate to the project folder and run:');
-  console.log(`    cd ${projectName}`);
-  console.log('    npm start');
+  console.log(`\ncd ${projectName}`);
+  console.log('\nnpm run dev');
 }
 
 main();
